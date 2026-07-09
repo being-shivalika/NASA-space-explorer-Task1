@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AsteroidCard from "../common/AsteroidCard";
-import { getNearEarthObjects } from "../../api/apodAPI";
+import { getNearEarthObjects } from "../../api/apodApi";
 
 const NearEarthAsteroid = () => {
   const today = new Date().toISOString().split("T")[0];

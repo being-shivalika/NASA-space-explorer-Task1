@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMarsPhotos, formatNASAError } from "../../api/apodAPI";
+import { getMarsPhotos, formatNASAError } from "../../api/apodApi";
 import MarsRoverCard from "../common/MarsRoverCard";
 
 const MarsRover = () => {
