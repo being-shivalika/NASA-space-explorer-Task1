@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  background-color: black;
+  color: white;
+}
+
+canvas {
+  height: 100vh;
+  width: 100%;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
