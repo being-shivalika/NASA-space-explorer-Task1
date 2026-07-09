@@ -34,13 +34,13 @@ const Planets = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4"
       >
         {planets.map((planet) => (
           <motion.div
             key={planet.id}
             variants={itemVariants}
-            className="glass-panel group relative flex flex-col items-center rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/20 hover:shadow-glass"
+            className="glass-panel group relative flex flex-col items-center rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/20 hover:shadow-glass border border-white/25"
             style={{
               boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
             }}

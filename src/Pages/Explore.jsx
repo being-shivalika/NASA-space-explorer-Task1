@@ -18,7 +18,7 @@ const Explore = () => {
         </h2>
 
         {/* Buttons */}
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:justify-center">
+        <div className="mt-8 flex gap-4 md:flex-row md:justify-center">
           <button
             onClick={() => setActiveSection("solar")}
             className={`rounded-lg px-6 py-3 transition-all duration-300 ${
@@ -34,7 +34,7 @@ const Explore = () => {
             onClick={() => setActiveSection("mission")}
             className={`rounded-lg px-6 py-3 transition-all duration-300 ${
               activeSection === "mission"
-                ? "bg-blue-700 text-white"
+                ? "bg-indigo-700 text-gray-300 hover:bg-blue-700"
                 : "border border-white text-gray-300 hover:bg-white/25"
             }`}
           >

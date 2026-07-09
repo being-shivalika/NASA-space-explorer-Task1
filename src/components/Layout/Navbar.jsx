@@ -37,9 +37,9 @@ const Navbar = () => {
         <img
           src="NASAlogo.png"
           alt="NASA Logo"
-          className="mr-2 inline-block h-6 w-auto md:h-8"
+          className="mr-2 inline-block h-8 w-auto md:h-8"
         />
-        <h2 className="m-0 inline-block text-sm playfair-display md:m-2 md:text-xl">
+        <h2 className="m-2 inline-block text-sm font-bold playfair-display md:m-2 md:text-xl">
           NASA Space Explorer
         </h2>
       </button>

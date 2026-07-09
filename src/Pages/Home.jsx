@@ -19,7 +19,7 @@ const Home = () => {
 
         <div className="absolute inset-0 z-10 bg-black/25 bg-linear-to-b from-transparent to-black/50" />
 
-        <div className="relative z-20 mx-auto flex max-w-sm flex-col items-center px-6 text-center text-white md:max-w-2xl lg:max-w-4xl">
+        <div className="relative z-20 flex max-w-sm flex-col  px-6 lg:text-center text-left text-white md:max-w-2xl lg:max-w-4xl">
           <h1 className="text-3xl font-bold leading-tight tracking-tight playfair-display md:text-5xl lg:text-6xl">
             Explore the Universe Through NASA's Open Source
           </h1>
@@ -31,7 +31,7 @@ const Home = () => {
           </p>
 
           {/* Action Buttons */}
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
+          <div className="mt-8 flex  gap-4 md:flex-row">
             <NavLink to="/explore">
               <button className="rounded border border-white bg-transparent px-5 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white/25 open-sans md:text-base">
                 Start Exploring
