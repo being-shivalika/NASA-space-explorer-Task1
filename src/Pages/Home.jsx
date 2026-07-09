@@ -25,21 +25,21 @@ const Home = () => {
           </h1>
 
           <p className="mt-6 max-w-xl text-sm leading-relaxed text-gray-200 open-sans md:text-base lg:text-lg">
-            Browse through years of stunning astronomy photos, explore
-            high-resolution images caught on the surface of Mars, and track the
-            real-time paths of asteroids passing close to Earth.
+            Discover NASA's Astronomy Picture of the Day, explore Mars Rover
+            photography, and track Near-Earth Objects— all in one interactive
+            experience.
           </p>
 
           {/* Action Buttons */}
           <div className="mt-10 lg:mt-8 flex  gap-4 md:flex-row">
             <NavLink to="/explore">
               <button className="rounded border border-white bg-transparent px-5 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white/25 open-sans md:text-base">
-                Start Exploring
+                Explore APOD
               </button>
             </NavLink>
             <NavLink to="/articles">
               <button className="rounded border border-transparent bg-blue-700 px-5 py-2.5 text-sm text-white shadow-md transition-all duration-200 hover:border-white hover:bg-indigo-500 open-sans md:text-base">
-                View articles
+                Browse Mars Photos
               </button>
             </NavLink>
           </div>
@@ -59,16 +59,16 @@ const Home = () => {
 
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col items-center text-center">
-            <h2 className="font-orbitron text-2xl font-extrabold uppercase tracking-wider text-white playfair-display md:text-4xl lg:text-5xl">
-              Explore the Solar System
+            <h2 className="font-orbitron text-2xl font-extrabold tracking-wider text-white playfair-display md:text-4xl lg:text-5xl">
+              Explore NASA Missions & Destinations
             </h2>
 
             {/* Gradient Divider Line */}
             <div className="mt-4 h-0.5 w-20 bg-linear-to-r from-space-purple to-nasa-blue" />
 
             <p className="mt-4 max-w-xl text-xs leading-relaxed text-gray-400 open-sans md:text-sm">
-              Select a celestial body to explore physical statistics, atmosphere
-              composition, satellite data, and planetary characteristics.
+              Learn about the worlds NASA has explored and the destinations that
+              continue to shape modern space exploration.
             </p>
           </div>
 

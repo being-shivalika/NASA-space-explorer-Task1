@@ -2,7 +2,7 @@ import Image from "../components/common/Image";
 import { useEffect, useState } from "react";
 import { getTodayAPOD, getLibraryItems } from "../api/apodApi";
 
-const Gallery = () => {
+const APOD = () => {
   const [apod, setApod] = useState(null);
   const [libraryItems, setLibraryItems] = useState([]);
 
@@ -67,4 +67,4 @@ const Gallery = () => {
     </>
   );
 };
-export default Gallery;
+export default APOD;

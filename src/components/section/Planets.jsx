@@ -40,11 +40,12 @@ const Planets = () => {
           <motion.div
             key={planet.id}
             variants={itemVariants}
-            className="glass-panel group relative flex flex-col items-center rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/20 hover:shadow-glass border border-white/25"
+            className="glass-panel group relative flex flex-col rounded-xl border border-white/15 p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/25 hover:shadow-glass"
             style={{
               boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
             }}
           >
+            {/* Glow Border */}
             <div
               className="pointer-events-none absolute inset-0 rounded-xl border opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
@@ -53,52 +54,52 @@ const Planets = () => {
               }}
             />
 
-            <div className="relative mb-6 flex h-28 w-28 items-center justify-center">
+            {/* Image */}
+            <div className="relative mb-6 flex justify-center">
               <div
-                className="absolute h-24 w-24 rounded-full blur-xl opacity-15"
+                className="absolute h-24 w-24 rounded-full blur-xl opacity-20"
                 style={{ backgroundColor: planet.color }}
               />
 
-              <div className="relative z-10 h-20 w-20 overflow-hidden rounded-full border border-white/5 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-12">
+              <div className="relative z-10 h-24 w-24 overflow-hidden rounded-full border border-white/10 transition-transform duration-500 group-hover:scale-105">
                 <img
                   src={planet.image}
                   alt={planet.name}
-                  className="h-full w-full scale-110 object-cover saturate-125"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </div>
 
-            <h3 className="font-orbitron text-xl font-bold text-white transition-colors group-hover:text-glow-blue">
+            {/* Category */}
+            <span className="text-[10px] uppercase tracking-[0.25em] text-nasa-blue">
+              {planet.category}
+            </span>
+
+            {/* Title */}
+            <h3 className="mt-2 font-orbitron text-xl font-bold text-white">
               {planet.name}
             </h3>
 
-            <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-gray-500">
-              {planet.tagline}
+            {/* Description */}
+            <p className="mt-3 line-clamp-4 text-sm leading-6 text-gray-300">
+              {planet.description}
             </p>
 
-            <div className="mt-6 grid w-full grid-cols-2 gap-2 border-t border-white/5 pt-4 text-left">
-              <div>
-                <span className="text-[9px] font-semibold uppercase text-gray-500">
-                  Moons
-                </span>
-                <p className="mt-0.5 text-xs font-medium text-white">
-                  {planet.moons.split(" (")[0]}
-                </p>
-              </div>
+            {/* Facts */}
+            <div className="mt-5 border-t border-white/10 pt-4">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-500">
+                Did You Know?
+              </p>
 
-              <div>
-                <span className="text-[9px] font-semibold uppercase text-gray-500">
-                  Diameter
-                </span>
-                <p className="mt-0.5 text-xs font-medium text-white">
-                  {planet.diameter.split(" ")[0]}
-                </p>
-              </div>
+              <p className="mt-2 text-xs leading-5 text-gray-300">
+                {planet.facts[0]}
+              </p>
             </div>
 
-            <div className="mt-4 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <CircleDot className="h-3 w-3 animate-pulse text-nasa-blue" />
-              View Details
+            {/* Footer */}
+            <div className="mt-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-nasa-blue">
+              <CircleDot className="h-4 w-4 animate-pulse" />
+              Explore More
             </div>
           </motion.div>
         ))}

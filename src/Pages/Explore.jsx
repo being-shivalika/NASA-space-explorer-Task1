@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Mission from "../components/section/Missions";
-import SolarSystem from "../components/section/SolarSystem";
+import MarsRover from "../components/section/MarsRover";
+import NearEarthAsteroid from "../components/section/NearEarthAsteroids";
 
 const Explore = () => {
   const [activeSection, setActiveSection] = useState("solar");
@@ -45,9 +45,9 @@ const Explore = () => {
 
       {/* Content */}
       <div className="relative mt-20 w-full overflow-hidden">
-        {activeSection === "solar" && <SolarSystem />}
+        {activeSection === "solar" && <NearEarthAsteroid />}
 
-        {activeSection === "mission" && <Mission />}
+        {activeSection === "mission" && <MarsRover />}
       </div>
     </div>
   );

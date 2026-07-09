@@ -21,25 +21,25 @@ const About = () => {
           <Card
             tag="MARS MISSION"
             title="Mars Rover Galleries"
-            img={"Rover.webp"}
-            description="Browse thousands of high-quality photos sent back over the years by Curiosity, Opportunity, and Spirit."
+            img={"/planets/Rover.webp"}
+            description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
             buttonLabel="Explore Mars"
             onButtonClick={() => alert("Navigating to Mars...")}
           />
           <Card
-            tag="APOLLO"
-            title="NASA's best space mission"
-            img={"moonLanding.jpg"}
-            description="Discover the latest updates and images from the world of astronomy."
-            buttonLabel="Explore Astronomy"
+            tag="APOD"
+            title="Astronomy Picture of the Day"
+            img={"/planets/moonLanding.jpg"}
+            description="Explore NASA's featured astronomy image with historical date search and detailed explanations."
+            buttonLabel="Explore APOD"
             onButtonClick={() => alert("Navigating to Astronomy...")}
           />
           <Card
             tag="APOD"
-            title="Hubble spaceCraft"
-            img={"HubbleSpace.webp"}
-            description="Discover the latest stunning images from the world of astronomy."
-            buttonLabel="Explore APOD"
+            title="Near-Earth Objects"
+            img={"/planets/HubbleSpace.webp"}
+            description="Track asteroids approaching Earth and filter potentially hazardous objects."
+            buttonLabel="Track Asteroids"
             onButtonClick={() => alert("Navigating to APOD...")}
           />
         </div>
