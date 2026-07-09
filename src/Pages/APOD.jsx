@@ -37,10 +37,10 @@ const APOD = () => {
   return (
     <>
       <div className="relative z-20 mx-auto flex max-w-5xl flex-col justify-center px-4 py-16 text-left text-white md:items-center md:text-center">
-        <h1 className="text-3xl font-bold md:text-5xl">
+        <h1 className="text-3xl font-bold md:text-5xl playfair-display">
           Explore the Deep Cosmos
         </h1>
-        <h2 className="mt-4 text-sm leading-relaxed md:text-lg lg:text-2xl">
+        <h2 className="mt-4 text-sm leading-relaxed md:text-lg lg:text-2xl open-sans">
           A new window into the universe every single day, backed by decades of
           space photography and missions.
         </h2>
