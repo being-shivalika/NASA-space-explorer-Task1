@@ -49,7 +49,7 @@ const NearEarthAsteroid = () => {
         Near-Earth Asteroid Tracker
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 p-6">
         {asteroids.map((asteroid) => (
           <AsteroidCard key={asteroid.id} asteroid={asteroid} />
         ))}

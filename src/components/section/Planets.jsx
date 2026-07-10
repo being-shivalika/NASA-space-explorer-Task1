@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { CircleDot } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CircleDot, X } from "lucide-react";
 import { planets } from "../data/planets";
 
 const containerVariants = {
@@ -27,6 +27,8 @@ const itemVariants = {
 };
 
 const Planets = () => {
+  const [selectedPlanet, setSelectedPlanet] = useState(null);
+
   return (
     <section className="relative overflow-hidden bg-space-bg px-4 py-16 md:px-6 md:py-24">
       <motion.div
@@ -34,13 +36,14 @@ const Planets = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 items-stretch"
       >
         {planets.map((planet) => (
           <motion.div
             key={planet.id}
             variants={itemVariants}
-            className="glass-panel group relative flex flex-col rounded-xl border border-white/15 p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/25 hover:shadow-glass"
+            onClick={() => setSelectedPlanet(planet)}
+            className="glass-panel group relative flex h-full min-h-136 cursor-pointer flex-col rounded-xl border border-white/15 p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/25 hover:shadow-glass"
             style={{
               boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
             }}
@@ -71,17 +74,17 @@ const Planets = () => {
             </div>
 
             {/* Category */}
-            <span className="text-[10px] uppercase tracking-[0.25em] text-nasa-blue">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-nasa-blue playfair-display">
               {planet.category}
             </span>
 
             {/* Title */}
-            <h3 className="mt-2 font-orbitron text-xl font-bold text-white">
+            <h3 className="mt-2 font-orbitron text-xl font-bold text-white open-sans">
               {planet.name}
             </h3>
 
             {/* Description */}
-            <p className="mt-3 line-clamp-4 text-sm leading-6 text-gray-300">
+            <p className="mt-3 line-clamp-4 text-sm leading-6 text-gray-300 open-sans">
               {planet.description}
             </p>
 
@@ -104,6 +107,96 @@ const Planets = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Planet Details Modal */}
+      <AnimatePresence>
+        {selectedPlanet && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedPlanet(null)}
+          >
+            <motion.div
+              className="relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl border border-white/10 bg-[#070b16] shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedPlanet(null)}
+                className="absolute right-5 top-5 z-20 rounded-full bg-black/40 p-2 text-white transition hover:bg-white hover:text-black"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Hero Image */}
+              <div className="relative">
+                <img
+                  src={selectedPlanet.image}
+                  alt={selectedPlanet.name}
+                  className="h-88 w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-linear-to-t from-[#070b16] via-transparent to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="p-8">
+                <span className="text-xs uppercase tracking-[0.3em] text-nasa-blue">
+                  {selectedPlanet.category}
+                </span>
+
+                <h2 className="mt-2 font-orbitron text-4xl font-bold text-white">
+                  {selectedPlanet.name}
+                </h2>
+
+                <p className="mt-6 text-base leading-8 text-gray-300">
+                  {selectedPlanet.description}
+                </p>
+
+                {/* Facts */}
+                <div className="mt-8">
+                  <h3 className="mb-5 text-2xl font-semibold text-white">
+                    Interesting Facts
+                  </h3>
+
+                  <div className="space-y-4">
+                    {selectedPlanet.facts.map((fact, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
+                      >
+                        <CircleDot className="mt-1 h-5 w-5 shrink-0 text-nasa-blue" />
+
+                        <p className="text-gray-300">{fact}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-6">
+                  <span className="text-sm text-gray-400">
+                    Click outside the card or press × to close.
+                  </span>
+
+                  <button
+                    onClick={() => setSelectedPlanet(null)}
+                    className="rounded-lg bg-nasa-blue px-5 py-2 text-sm font-semibold text-white transition hover:scale-105"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

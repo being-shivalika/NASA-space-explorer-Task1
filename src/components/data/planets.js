@@ -3,7 +3,7 @@ export const planets = [
     id: "black-hole",
     name: "Black Hole",
     category: "Deep Space",
-    image: "black-hole.jpg",
+    image: "BlackHole.jpg",
     color: "#3B3F4A",
 
     description:
@@ -20,7 +20,7 @@ export const planets = [
     id: "nebula",
     name: "Nebula",
     category: "Deep Space",
-    image: "nebula.jpg",
+    image: "Nebula.jpg",
     color: "#7A53FF",
 
     description:
@@ -37,7 +37,7 @@ export const planets = [
     id: "galaxy",
     name: "Galaxy",
     category: "Deep Space",
-    image: "galaxy.jpg",
+    image: "galaxy.webp",
     color: "#4D77FF",
 
     description:
@@ -71,7 +71,7 @@ export const planets = [
     id: "exoplanet",
     name: "Exoplanet",
     category: "Planetary Science",
-    image: "exoplanet.jpg",
+    image: "exoplanets.jpg",
     color: "#3EA66A",
 
     description:
@@ -105,7 +105,7 @@ export const planets = [
     id: "comet",
     name: "Comet",
     category: "Small Body",
-    image: "comet.jpg",
+    image: "commet.jpg",
     color: "#82D9FF",
 
     description:

@@ -2,10 +2,7 @@ import React from "react";
 
 const Card = ({ tag, title, img, description, buttonLabel, onButtonClick }) => {
   return (
-    <div
-      className=" group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-lg w-full max-w-85 flex-none
-      "
-    >
+    <div className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-lg w-full max-w-88 h-full min-h-136 flex flex-col justify-between">
       {/* Image */}
       <div className="relative h-60 overflow-hidden">
         <img

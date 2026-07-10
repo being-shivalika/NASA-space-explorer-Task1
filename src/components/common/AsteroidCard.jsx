@@ -25,7 +25,7 @@ const AsteroidCard = ({ asteroid }) => {
   const approachDate = approach ? approach.close_approach_date : "N/A";
 
   return (
-    <div className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-cyan-500/20">
+    <div className="w-200 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-cyan-500/20">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <h3 className="text-xl font-bold text-white flex items-center gap-2">
