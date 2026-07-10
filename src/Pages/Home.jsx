@@ -32,12 +32,12 @@ const Home = () => {
 
           {/* Action Buttons */}
           <div className="mt-10 lg:mt-8 flex  gap-4 md:flex-row">
-            <NavLink to="/explore">
+            <NavLink to="/apod">
               <button className="rounded border border-white bg-transparent px-5 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white/25 open-sans md:text-base">
                 Explore APOD
               </button>
             </NavLink>
-            <NavLink to="/articles">
+            <NavLink to="/explore">
               <button className="rounded border border-transparent bg-blue-700 px-5 py-2.5 text-sm text-white shadow-md transition-all duration-200 hover:border-white hover:bg-indigo-500 open-sans md:text-base">
                 Browse Mars Photos
               </button>

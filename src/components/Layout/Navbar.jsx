@@ -7,9 +7,7 @@ const Navbar = () => {
   const handleHomeClick = (e) => {
     if (window.location.pathname === "/") {
       e.preventDefault();
-      document
-        .getElementById("about-section")
-        ?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };

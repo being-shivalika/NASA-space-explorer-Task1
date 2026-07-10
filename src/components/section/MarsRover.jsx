@@ -49,8 +49,7 @@ const MarsRover = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen py-16">
-      {/* Heading */}
+    <section className="w-full h-screen py-10">
       <div className="mx-auto mb-10 max-w-5xl px-4 text-center text-white">
         <h2 className="playfair-display text-3xl md:text-5xl">
           Mars Rover Explorer
