@@ -128,7 +128,7 @@ const MarsRover = () => {
       {/* Error */}
       {/* Error */}
       {!loading && error && (
-        <div className="mt-10 rounded-xl border border-red-500/30 bg-red-500/10 p-6 text-center">
+        <div className="mt-10 rounded-xl border border-red-500/30 bg-red-500/10 p-6 text-center w-150 ml-110">
           <h3 className="text-xl font-semibold text-red-400">
             Unable to load Mars Rover photos
           </h3>
