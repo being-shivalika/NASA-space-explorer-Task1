@@ -44,7 +44,7 @@ const NearEarthAsteroid = () => {
   }
 
   return (
-    <div className="relative w-full mt-20 overflow-hidden">
+    <div className="relative w-full mt-20 overflow-hidden" id="asteroid">
       <h2 className="text-4xl font-bold text-white text-center mb-12">
         Near-Earth Asteroid Tracker
       </h2>

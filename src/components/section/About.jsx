@@ -1,4 +1,5 @@
 import Card from "../common/Card";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -18,30 +19,34 @@ const About = () => {
         </div>
 
         <div className="mt-10 flex flex-nowrap gap-4 overflow-x-auto px-2 pb-2 scroll-smooth md:justify-center md:gap-6 md:px-6">
-          <Card
-            tag="MARS MISSION"
-            title="Mars Rover Galleries"
-            img={"/planets/Rover.webp"}
-            description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
-            buttonLabel="Explore Mars"
-            onButtonClick={() => alert("Navigating to Mars...")}
-          />
-          <Card
-            tag="APOD"
-            title="Astronomy Picture of the Day"
-            img={"/planets/moonLanding.jpg"}
-            description="Explore NASA's featured astronomy image with historical date search and detailed explanations."
-            buttonLabel="Explore APOD"
-            onButtonClick={() => alert("Navigating to Astronomy...")}
-          />
-          <Card
-            tag="APOD"
-            title="Near-Earth Objects"
-            img={"/planets/HubbleSpace.webp"}
-            description="Track asteroids approaching Earth and filter potentially hazardous objects."
-            buttonLabel="Track Asteroids"
-            onButtonClick={() => alert("Navigating to APOD...")}
-          />
+          <Link to="/explore#mars-rover" className="shrink-0">
+            <Card
+              tag="MARS MISSION"
+              title="Mars Rover Galleries"
+              img={"/planets/Rover.webp"}
+              description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
+              buttonLabel="Explore Mars"
+            />
+          </Link>
+          
+          <Link to="/apod" className="shrink-0">
+            <Card
+              tag="APOD"
+              title="Astronomy Picture of the Day"
+              img={"/planets/moonLanding.jpg"}
+              description="Explore NASA's featured astronomy image with historical date search and detailed explanations."
+              buttonLabel="Explore APOD"
+            />
+          </Link>
+          <Link to="/explore#asteroids" className="shrink-0">
+            <Card
+              tag="APOD"
+              title="Near-Earth Objects"
+              img={"/planets/HubbleSpace.webp"}
+              description="Track asteroids approaching Earth and filter potentially hazardous objects."
+              buttonLabel="Track Asteroids"
+            />
+          </Link>
         </div>
       </div>
     </>

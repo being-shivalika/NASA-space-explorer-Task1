@@ -7,7 +7,9 @@ const Navbar = () => {
   const handleHomeClick = (e) => {
     if (window.location.pathname === "/") {
       e.preventDefault();
-      document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("about-section")
+        ?.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -58,9 +60,6 @@ const Navbar = () => {
         </NavLink>
         <NavLink to="/favs" className={linkClass} onClick={closeMenu}>
           Favourites
-        </NavLink>
-        <NavLink to="/articles" className={linkClass} onClick={closeMenu}>
-          Near-Earth Objects
         </NavLink>
       </div>
     </div>

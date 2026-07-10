@@ -44,7 +44,7 @@ const Explore = () => {
       </div>
 
       {/* Content */}
-      <div className="relative mt-20 w-full overflow-hidden">
+      <div className="relative mt-8 w-full overflow-hidden">
         {activeSection === "asteroid" && <NearEarthAsteroid />}
 
         {activeSection === "mars" && <MarsRover />}
