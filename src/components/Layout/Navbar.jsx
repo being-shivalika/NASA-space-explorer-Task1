@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar-container fixed left-0 right-0 top-0 z-50 flex h-15 items-center justify-between px-4 py-4 text-white md:px-6">
+    <div className="navbar-container bg-black/25 fixed left-0 right-0 top-0 z-50 flex h-15 items-center justify-between px-4 py-4 text-white md:px-6">
       <NavLink
         to="/"
         onClick={handleHomeClick}
