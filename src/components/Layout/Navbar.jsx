@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container fixed left-0 right-0 top-0 z-50 flex h-15 items-center justify-between px-4 py-4 text-white md:px-6">
-      <button
-        type="button"
-        onClick={toggleMenu}
+      <NavLink
+        to="/"
+        onClick={handleHomeClick}
         className="logo flex items-center text-2xl font-bold"
       >
         <img
@@ -42,6 +42,17 @@ const Navbar = () => {
         <h2 className="m-2 inline-block text-sm font-bold playfair-display md:m-2 md:text-xl">
           NASA Space Explorer
         </h2>
+      </NavLink>
+
+      <button
+        type="button"
+        onClick={toggleMenu}
+        className="ml-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 md:hidden"
+        aria-label={
+          isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+        }
+      >
+        <span className="text-2xl">{isMenuOpen ? "×" : "☰"}</span>
       </button>
 
       <div

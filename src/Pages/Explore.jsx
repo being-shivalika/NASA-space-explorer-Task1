@@ -6,8 +6,8 @@ const Explore = () => {
   const [activeSection, setActiveSection] = useState("mars");
 
   return (
-    <div className="relative w-full overflow-hidden shadow-lg mt-25">
-      <div className="relative z-20 mx-auto flex max-w-5xl flex-col justify-center px-4 py-16 text-left text-white md:items-center md:text-center">
+    <div className="relative w-full overflow-hidden shadow-lg pt-15 ">
+      <div className="relative z-20 mx-auto flex w-full h-120 flex-col justify-center px-4 py-16 text-left text-white md:items-center md:text-center bg-[url('/bgExplore.png')] bg-cover">
         <h1 className="text-3xl font-bold playfair-display md:text-5xl">
           Beyond Earth: Into the Unknown
         </h1>
