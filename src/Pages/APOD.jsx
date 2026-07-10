@@ -65,23 +65,24 @@ const APOD = () => {
         </h2>
       </div>
       <div className="flex flex-col items-center gap-3 mb-10">
-        <label className="text-lg font-semibold text-white">
-          Explore Astronomy History
-        </label>
-
-        <input
-          type="date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          max={new Date().toISOString().split("T")[0]}
-          min="1995-06-16"
-          className="rounded-lg border border-white/20 bg-white/40 px-4 py-2 text-white outline-none focus:border-blue-500"
-        />
-
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-gray-400 inline-block px-10">
           Select any date since June 16, 1995 to discover NASA's Astronomy
           Picture of the Day.
         </p>
+        <div className="flex  justify-center gap-4 ">
+          <label className="text-lg font-semibold text-white pt-2">
+            Explore Astronomy History
+          </label>
+
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={handleDateChange}
+            max={new Date().toISOString().split("T")[0]}
+            min="1995-06-16"
+            className="rounded-lg border border-white/20 bg-white/40 px-4 py-2 text-white outline-none focus:border-blue-500"
+          />
+        </div>
       </div>
 
       <div className="m-5 flex flex-col gap-4 rounded border border-white/20 p-4 md:flex-row md:items-center md:justify-center md:p-6">
