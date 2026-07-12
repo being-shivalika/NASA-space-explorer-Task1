@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCloseApproachObjects } from "../../api/apodAPI";
+import { getCloseApproachObjects } from "../../api/apodApi";
 import NearEarthCard from "../common/NearEarthCard";
 
 const NearEarthObject = () => {
