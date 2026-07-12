@@ -48,41 +48,50 @@ const NearEarthObject = () => {
       </div>
 
       {/* Filters */}
-      <div className="mx-auto mb-10 flex max-w-6xl flex-wrap items-end justify-center gap-5 px-4">
-        {/* Date */}
-        <div className="flex flex-col">
-          <label className="mb-2 text-sm text-white">Date</label>
+      <div className="mx-auto mb-12 max-w-4xl px-4">
+        <div className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/4 p-5 backdrop-blur-sm sm:flex-row sm:items-end sm:justify-center">
+          {/* Date */}
+          <div className="flex flex-wrap justify-center align-middle gap-4">
+            <label className="text-xs font-medium uppercase tracking-wide text-slate-400 mt-3">
+              Select Date
+            </label>
 
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="rounded-lg border border-slate-600 bg-slate-900 px-4 py-2 text-white"
-          />
-        </div>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="date-input h-11 w-full rounded-xl border border-white/10 bg-black/40 px-4 text-sm text-white outline-none transition-all hover:border-white/20 focus:border-indigo-800/2 focus:ring-2 focus:ring-indigo-500/20 sm:w-64
+  "
+            />
+          </div>
 
-        {/* Hazard Filter */}
-        <div className="flex items-center gap-3 pb-2">
-          <input
-            id="hazardous"
-            type="checkbox"
-            checked={hazardousOnly}
-            onChange={(e) => setHazardousOnly(e.target.checked)}
-            className="h-5 w-5"
-          />
+          {/* Hazard Filter */}
+          <label
+            htmlFor="hazardous"
+            className="flex h-11 cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-black/30 px-4 text-sm text-slate-300 transition hover:border-white/20
+      "
+          >
+            <input
+              id="hazardous"
+              type="checkbox"
+              checked={hazardousOnly}
+              onChange={(e) => setHazardousOnly(e.target.checked)}
+              className="h-4 w-4 rounded border-slate-600 bg-black accent-indigo-500
+        "
+            />
 
-          <label htmlFor="hazardous" className="text-white">
-            Hazardous Only
+            <span>Hazardous Objects Only</span>
           </label>
-        </div>
 
-        {/* Search */}
-        <button
-          onClick={fetchAsteroids}
-          className="rounded-lg bg-indigo-600 px-6 py-2 text-white transition hover:bg-indigo-700"
-        >
-          Search
-        </button>
+          {/* Search */}
+          <button
+            onClick={fetchAsteroids}
+            className="h-11 rounded-xl bg-indigo-500 px-8 text-sm font-medium text-white transition-all hover:bg-indigo-400 hover:shadow-lg hover:shadow-indigo-500/20 active:scale-[0.98]
+      "
+          >
+            Search
+          </button>
+        </div>
       </div>
 
       {/* Loading */}

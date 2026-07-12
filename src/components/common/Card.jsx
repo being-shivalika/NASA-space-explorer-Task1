@@ -39,7 +39,7 @@ const Card = ({ tag, title, img, description, buttonLabel, onButtonClick }) => {
         {buttonLabel && (
           <button
             onClick={onButtonClick}
-            className="mt-8 rounded-lg border border-cyan-800/30 bg-cyan-950/10 px-5 py-3  text-sm font-medium text-gray-300 transition-colors duration-300  hover:bg-blue-950/25 hover:text-white
+            className="mt-8 rounded-lg border  hover:scale-105  border-cyan-800/30 bg-cyan-950/10 px-5 py-3  text-sm font-medium text-gray-300 transition-colors duration-300  hover:bg-blue-950/25 hover:text-white
             "
           >
             {buttonLabel}

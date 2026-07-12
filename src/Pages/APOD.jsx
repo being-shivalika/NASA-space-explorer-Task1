@@ -1,11 +1,13 @@
 import Image from "../components/common/Image";
 import { useEffect, useState } from "react";
 import { getTodayAPOD, getAPODByDate, getLibraryItems } from "../api/apodApi";
+import APODSkeleton from "../components/skeleton/APODSkeleton";
+import ImageSkeleton from "../components/skeleton/ImageSkeleton";
 
 const APOD = () => {
   const [apod, setApod] = useState(null);
   const [libraryItems, setLibraryItems] = useState([]);
-
+  const [libraryLoading, setLibraryLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -52,6 +54,23 @@ const APOD = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchLibrary = async () => {
+      try {
+        setLibraryLoading(true);
+
+        const data = await getLibraryItems();
+        setLibraryItems(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLibraryLoading(false);
+      }
+    };
+
+    fetchLibrary();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center">
@@ -80,16 +99,15 @@ const APOD = () => {
               onChange={handleDateChange}
               max={new Date().toISOString().split("T")[0]}
               min="1995-06-16"
-              className="rounded-lg border border-white/20 bg-white/40 px-4 py-2 text-white outline-none focus:border-blue-500"
+              className="date-input h-11 w-full rounded-xl border border-white/10 bg-black/40 px-4 text-sm text-white outline-none transition-all hover:border-white/20 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 sm:w-64
+  "
             />
           </div>
         </div>
 
         <div className="m-5 flex flex-col justify-center align-middle gap-4 rounded border border-white/20 p-4 md:flex-row md:items-center md:justify-center md:p-6 max-w-5xl">
           {loading ? (
-            <div className="flex h-100 items-center justify-center">
-              <div className="text-white">Loading...</div>
-            </div>
+            <APODSkeleton />
           ) : apod?.media_type === "image" ? (
             <img
               src={apod?.url}
@@ -113,7 +131,7 @@ const APOD = () => {
         </div>
 
         <div className="mt-auto">
-          <Image items={libraryItems} />
+          {libraryLoading ? <ImageSkeleton /> : <Image items={libraryItems} />}
         </div>
       </div>
     </>

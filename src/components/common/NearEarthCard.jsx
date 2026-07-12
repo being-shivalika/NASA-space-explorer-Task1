@@ -11,7 +11,12 @@ const NearEarthCard = ({ asteroid }) => {
   } = asteroid;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-lg transition-all duration-300 hover:border-indigo-500 hover:shadow-xl">
+    <div
+      className="overflow-hidden rounded-2xl border border-white/10
+      bg-white/4
+      p-5
+     backdrop-blur-lg transition-all duration-300 hover:shadow-md hover:shadow-white/25"
+    >
       <div className="border-b border-white/10 p-5">
         <div className="flex items-center justify-between gap-3">
           <h3 className="line-clamp-1 text-lg font-semibold text-white">
@@ -56,14 +61,17 @@ const NearEarthCard = ({ asteroid }) => {
           <span>{orbitingBody}</span>
         </div>
 
-        <a
-          href={nasaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block w-full rounded-lg bg-indigo-600 px-4 py-2 text-center font-medium text-white transition hover:bg-indigo-700"
-        >
-          View on NASA ↗
-        </a>
+        <div className="flex justify-center">
+          {" "}
+          <a
+            href={nasaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block w-fit rounded-lg bg-indigo-600/20 px-12 py-2 text-center font-medium  hover:scale-105  text-white transition hover:bg-indigo-700"
+          >
+            View on NASA
+          </a>
+        </div>
       </div>
     </div>
   );

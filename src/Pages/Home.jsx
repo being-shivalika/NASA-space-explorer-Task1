@@ -15,7 +15,7 @@ const Home = () => {
           playsInline
           className="absolute inset-0 z-0 h-full w-full object-cover"
         >
-          <source src="earth2.mp4" type="video/mp4" />
+          <source src="/newEarth.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 z-10 bg-black/25 bg-linear-to-b from-transparent to-black/50" />

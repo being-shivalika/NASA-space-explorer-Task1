@@ -35,7 +35,7 @@ const Navbar = () => {
         className="logo flex items-center text-2xl font-bold"
       >
         <img
-          src="NASAlogo.png"
+          src="/NASAlogo.png"
           alt="NASA Logo"
           className="mr-2 inline-block h-8 w-auto md:h-8"
         />
