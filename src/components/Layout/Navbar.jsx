@@ -22,8 +22,8 @@ const Navbar = () => {
 
     return `rounded-lg px-4 py-2 font-bold transition-colors ${
       isActive && !isHome
-        ? "bg-white/25 rounded text-white shadow-sm"
-        : "text-white bg-transparent hover:bg-white/25"
+        ? " text-indigo-500 shadow-sm"
+        : "text-white bg-transparent hover:text-indigo-500"
     }`;
   };
 
@@ -64,7 +64,7 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink to="/explore" className={linkClass} onClick={closeMenu}>
-          Mars Rover
+          Near Earth Objects
         </NavLink>
         <NavLink to="/apod" className={linkClass} onClick={closeMenu}>
           APOD

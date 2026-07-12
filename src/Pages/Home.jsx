@@ -2,6 +2,7 @@ import About from "../components/section/About";
 import Planets from "../components/section/Planets";
 import { planets } from "../components/data/planets";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
@@ -20,15 +21,25 @@ const Home = () => {
         <div className="absolute inset-0 z-10 bg-black/25 bg-linear-to-b from-transparent to-black/50" />
 
         <div className="relative z-20 mx-auto flex max-w-sm flex-col items-start px-6 text-left text-white md:max-w-2xl lg:max-w-4xl lg:items-center lg:text-center mb-25 lg:mb-0">
-          <h1 className="text-3xl font-bold leading-tight tracking-tight playfair-display md:text-5xl lg:text-6xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-3xl font-bold leading-tight tracking-tight playfair-display md:text-5xl lg:text-6xl"
+          >
             Explore the Universe Through NASA's Open Source
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-gray-200 open-sans md:text-base lg:text-lg">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-6 max-w-xl text-sm leading-relaxed text-gray-200 open-sans md:text-base lg:text-lg"
+          >
             Discover NASA's Astronomy Picture of the Day, explore Mars Rover
             photography, and track Near-Earth Objects— all in one interactive
             experience.
-          </p>
+          </motion.p>
 
           {/* Action Buttons */}
           <div className="mt-10 lg:mt-8 flex  gap-4 md:flex-row">
@@ -39,7 +50,7 @@ const Home = () => {
             </NavLink>
             <NavLink to="/explore">
               <button className="rounded border border-transparent bg-blue-700 px-5 py-2.5 text-sm text-white shadow-md transition-all duration-200 hover:border-white hover:bg-indigo-500 open-sans md:text-base">
-                Browse Mars Photos
+                View Asteroids
               </button>
             </NavLink>
           </div>

@@ -19,16 +19,6 @@ const About = () => {
         </div>
 
         <div className="mt-10 flex flex-nowrap gap-4 overflow-x-auto px-2 pb-2 scroll-smooth md:justify-center md:gap-6 md:px-6">
-          <Link to="/explore#mars-rover" className="shrink-0">
-            <Card
-              tag="MARS MISSION"
-              title="Mars Rover Galleries"
-              img={"/planets/Rover.webp"}
-              description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
-              buttonLabel="Explore Mars"
-            />
-          </Link>
-          
           <Link to="/apod" className="shrink-0">
             <Card
               tag="APOD"
@@ -45,6 +35,16 @@ const About = () => {
               img={"/planets/HubbleSpace.webp"}
               description="Track asteroids approaching Earth and filter potentially hazardous objects."
               buttonLabel="Track Asteroids"
+            />
+          </Link>
+
+          <Link to="/apod" className="shrink-0">
+            <Card
+              tag="MARS MISSION"
+              title="Mars Rover Galleries"
+              img={"/planets/Rover.webp"}
+              description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
+              buttonLabel="Explore Mars"
             />
           </Link>
         </div>

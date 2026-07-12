@@ -1,17 +1,11 @@
 import axios from "axios";
 import nasaApi from "./axios";
 
-/* ===========================
-   APOD API
-=========================== */
-
-// Get today's APOD
 export const getTodayAPOD = async () => {
   const { data } = await nasaApi.get("/planetary/apod");
   return data;
 };
 
-// Get APOD by date
 export const getAPODByDate = async (date) => {
   const { data } = await nasaApi.get("/planetary/apod", {
     params: {
@@ -22,7 +16,7 @@ export const getAPODByDate = async (date) => {
   return data;
 };
 
-// Get APOD for a date range
+// APOD for a date range
 export const getAPODByRange = async (startDate, endDate) => {
   const { data } = await nasaApi.get("/planetary/apod", {
     params: {
@@ -34,10 +28,7 @@ export const getAPODByRange = async (startDate, endDate) => {
   return data;
 };
 
-/* ===========================
-   NASA Image & Video Library API
-=========================== */
-
+// NASA Image & Video Library API
 export const getLibraryItems = async ({
   query = "space",
   mediaType = "image",
@@ -58,7 +49,7 @@ export const getLibraryItems = async ({
   return data.collection.items;
 };
 
-// Get all available assets (high-resolution images, videos, etc.)
+// Get all  images, videos, etc
 export const getLibraryAsset = async (nasaId) => {
   const { data } = await axios.get(
     `https://images-api.nasa.gov/asset/${nasaId}`,
@@ -67,9 +58,7 @@ export const getLibraryAsset = async (nasaId) => {
   return data.collection.items;
 };
 
-/* ===========================
-   Mars Rover Photos API
-=========================== */
+// Mars Rover Photos API
 
 export const getMarsPhotos = async ({
   rover = "curiosity",
@@ -95,43 +84,7 @@ export const getMarsPhotos = async ({
   return data.photos;
 };
 
-/* ===========================
-   Near Earth Objects API
-=========================== */
-
-export const getNearEarthObjects = async (startDate, endDate = startDate) => {
-  const { data } = await nasaApi.get("/neo/rest/v1/feed", {
-    params: {
-      start_date: startDate,
-      end_date: endDate,
-    },
-  });
-
-  return data;
-};
-
-// Return only hazardous asteroids
-export const getHazardousAsteroids = async (date) => {
-  const data = await getNearEarthObjects(date);
-
-  return Object.values(data.near_earth_objects)
-    .flat()
-    .filter((asteroid) => asteroid.is_potentially_hazardous_asteroid);
-};
-
-/* ===========================
-   Asteroid Details API
-=========================== */
-
-export const getAsteroidDetails = async (id) => {
-  const { data } = await nasaApi.get(`/neo/rest/v1/neo/${id}`);
-
-  return data;
-};
-
-/* ===========================
-   Utility
-=========================== */
+// Utility
 
 export const formatNASAError = (error) => {
   return (
@@ -139,4 +92,56 @@ export const formatNASAError = (error) => {
     error?.message ||
     "Something went wrong while fetching NASA data."
   );
+};
+
+// Near Earth Object Tracker
+
+export const getCloseApproachObjects = async ({
+  startDate,
+  hazardous = false,
+}) => {
+  const { data } = await nasaApi.get("/neo/rest/v1/feed", {
+    params: {
+      start_date: startDate,
+    },
+  });
+
+  // Flatten the object grouped by dates
+  let asteroids = Object.values(data.near_earth_objects).flat();
+
+  // Convert to a cleaner format for your cards
+  asteroids = asteroids.map((asteroid) => {
+    const approach = asteroid.close_approach_data[0];
+
+    return {
+      id: asteroid.id,
+      designation: asteroid.name,
+
+      hazardous: asteroid.is_potentially_hazardous_asteroid,
+
+      diameter: `${asteroid.estimated_diameter.meters.estimated_diameter_min.toFixed(
+        1,
+      )} - ${asteroid.estimated_diameter.meters.estimated_diameter_max.toFixed(
+        1,
+      )} m`,
+
+      closeApproachDate: approach?.close_approach_date,
+
+      velocityKmS: Number(
+        approach?.relative_velocity.kilometers_per_second,
+      ).toFixed(2),
+
+      distanceKm: Number(approach?.miss_distance.kilometers).toLocaleString(),
+
+      orbitingBody: approach?.orbiting_body,
+
+      nasaUrl: asteroid.nasa_jpl_url,
+    };
+  });
+
+  if (hazardous) {
+    asteroids = asteroids.filter((asteroid) => asteroid.hazardous);
+  }
+
+  return asteroids;
 };
