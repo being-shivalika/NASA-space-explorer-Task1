@@ -49,49 +49,13 @@ export const getLibraryItems = async ({
   return data.collection.items;
 };
 
-// Get all  images, videos, etc
+// Get all  images, videos
 export const getLibraryAsset = async (nasaId) => {
   const { data } = await axios.get(
     `https://images-api.nasa.gov/asset/${nasaId}`,
   );
 
   return data.collection.items;
-};
-
-// Mars Rover Photos API
-
-export const getMarsPhotos = async ({
-  rover = "curiosity",
-  earthDate,
-  sol,
-  camera = "",
-  page = 1,
-}) => {
-  const params = { page };
-
-  if (earthDate) params.earth_date = earthDate;
-  if (sol) params.sol = sol;
-  if (camera) params.camera = camera;
-
-  console.log("Rover:", rover);
-  console.log("Params:", params);
-
-  const { data } = await nasaApi.get(
-    `/mars-photos/api/v1/rovers/${rover}/photos`,
-    { params },
-  );
-
-  return data.photos;
-};
-
-// Utility
-
-export const formatNASAError = (error) => {
-  return (
-    error?.response?.data?.error?.message ||
-    error?.message ||
-    "Something went wrong while fetching NASA data."
-  );
 };
 
 // Near Earth Object Tracker
@@ -106,10 +70,8 @@ export const getCloseApproachObjects = async ({
     },
   });
 
-  // Flatten the object grouped by dates
   let asteroids = Object.values(data.near_earth_objects).flat();
 
-  // Convert to a cleaner format for your cards
   asteroids = asteroids.map((asteroid) => {
     const approach = asteroid.close_approach_data[0];
 

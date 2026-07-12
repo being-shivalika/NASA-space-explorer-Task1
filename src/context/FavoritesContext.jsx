@@ -21,7 +21,7 @@ export const FavoritesProvider = ({ children }) => {
     setFavorites(getFavorites());
   };
   const isFavorite = (id) => {
-    return getFavorites().some((item) => item.id === id);
+    return favorites.some((item) => item.id === id);
   };
 
   const removeFromFavorites = (id) => {

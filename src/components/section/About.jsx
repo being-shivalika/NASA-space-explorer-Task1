@@ -30,21 +30,21 @@ const About = () => {
           </Link>
           <Link to="/explore#asteroids" className="shrink-0">
             <Card
-              tag="APOD"
-              title="Near-Earth Objects"
+              tag="Asteroids"
+              title="Near-Earth Objects & asteroids"
               img={"/planets/HubbleSpace.webp"}
               description="Track asteroids approaching Earth and filter potentially hazardous objects."
               buttonLabel="Track Asteroids"
             />
           </Link>
 
-          <Link to="/apod" className="shrink-0">
+          <Link to="/favs" className="shrink-0">
             <Card
-              tag="MARS MISSION"
-              title="Mars Rover Galleries"
-              img={"/planets/Rover.webp"}
+              tag="Favourites"
+              title="Browser your fav nasa images"
+              img={"/BlackHole.jpg"}
               description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
-              buttonLabel="Explore Mars"
+              buttonLabel="Explore Favourites"
             />
           </Link>
         </div>

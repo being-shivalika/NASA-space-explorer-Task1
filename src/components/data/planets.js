@@ -5,7 +5,6 @@ export const planets = [
     category: "Deep Space",
     image: "BlackHole.jpg",
     color: "#3B3F4A",
-
     description:
       "Regions of spacetime where gravity is so intense that nothing—not even light—can escape. NASA studies black holes using space telescopes such as Chandra and James Webb.",
 

@@ -12,11 +12,10 @@ const NearEarthCard = ({ asteroid }) => {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-lg transition-all duration-300 hover:border-indigo-500 hover:shadow-xl">
-      {/* Header */}
       <div className="border-b border-white/10 p-5">
         <div className="flex items-center justify-between gap-3">
           <h3 className="line-clamp-1 text-lg font-semibold text-white">
-            ☄️ {designation}
+            object {designation}
           </h3>
 
           <span
@@ -31,7 +30,6 @@ const NearEarthCard = ({ asteroid }) => {
         </div>
       </div>
 
-      {/* Body */}
       <div className="space-y-4 p-5 text-sm text-slate-300">
         <div className="flex justify-between gap-4">
           <span className="font-medium text-white">Close Approach</span>

@@ -20,19 +20,19 @@ const Card = ({ tag, title, img, description, buttonLabel, onButtonClick }) => {
 
       <div className="flex flex-col p-6">
         {tag && (
-          <span className="text-[10px] font-semibold uppercase tracking-[0.25em] playfair-display text-gray-400">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.25em] playfair-display text-gray-400  text-center">
             {tag}
           </span>
         )}
 
         <h3
-          className=" mt-3 text-2xl font-bold text-white transition-colors duration-300 open-sans group-hover:text-gray-300
+          className=" mt-3 text-2xl font-bold text-white transition-colors duration-300 open-sans group-hover:text-gray-300 text-center
           "
         >
           {title}
         </h3>
 
-        <p className="mt-4 flex-1 text-xs leading-7 open-sans text-slate-400">
+        <p className="mt-4 flex-1 text-xs leading-7 text-center open-sans text-slate-400">
           {description}
         </p>
 

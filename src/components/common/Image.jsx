@@ -3,23 +3,23 @@ import { useFavorites } from "../../context/FavoritesContext";
 
 const Image = ({ items }) => {
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
-
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleAddToFav = (item) => {
-    const favoriteItem = {
-      id: item.data[0].nasa_id,
+    const id = item.data[0].nasa_id;
+
+    if (isFavorite(id)) {
+      removeFromFavorites(id);
+      return;
+    }
+
+    addToFavorites({
+      id,
       title: item.data[0].title,
       image: item.links?.[0]?.href,
       description: item.data[0].description,
       mediaType: item.data[0].media_type,
-    };
-
-    if (isFavorite(favoriteItem.id)) {
-      removeFromFavorites(favoriteItem.id);
-    } else {
-      addToFavorites(favoriteItem);
-    }
+    });
   };
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const Image = ({ items }) => {
                   className={`${
                     isFavorite(item.data[0].nasa_id)
                       ? "fa-solid text-yellow-400"
-                      : "fa-regular"
+                      : "fa-regular "
                   } fa-star text-lg`}
                 />
               </button>

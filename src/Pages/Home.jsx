@@ -37,7 +37,7 @@ const Home = () => {
             className="mt-6 max-w-xl text-sm leading-relaxed text-gray-200 open-sans md:text-base lg:text-lg"
           >
             Discover NASA's Astronomy Picture of the Day, explore Mars Rover
-            photography, and track Near-Earth Objects— all in one interactive
+            photography, and track Near-Earth Objects all in one interactive
             experience.
           </motion.p>
 
