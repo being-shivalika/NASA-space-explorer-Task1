@@ -68,7 +68,13 @@ const Home = () => {
         {/* Ambient Decorative Glow */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-space-purple/5 blur-[120px] animate-pulse-slow" />
 
-        <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+          className="mx-auto max-w-7xl"
+        >
           <div className="mb-12 flex flex-col items-center text-center">
             <h2 className="font-orbitron text-2xl font-extrabold tracking-wider text-white playfair-display md:text-4xl lg:text-5xl">
               Explore NASA Missions & Destinations
@@ -84,7 +90,7 @@ const Home = () => {
           </div>
 
           <Planets planets={planets} />
-        </div>
+        </motion.div>
       </section>
     </>
   );

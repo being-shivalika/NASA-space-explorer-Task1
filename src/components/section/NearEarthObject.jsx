@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCloseApproachObjects } from "../../api/apodApi";
 import NearEarthCard from "../common/NearEarthCard";
+import NearEarthSkeleton from "../skeleton/ImageSkeleton";
 
 const NearEarthObject = () => {
   const today = new Date().toISOString().split("T")[0];
@@ -95,11 +96,7 @@ const NearEarthObject = () => {
       </div>
 
       {/* Loading */}
-      {loading && (
-        <p className="text-center text-lg text-white">
-          Loading Near-Earth Objects...
-        </p>
-      )}
+      {loading && <NearEarthSkeleton />}
 
       {/* Empty */}
       {!loading && asteroids.length === 0 && (

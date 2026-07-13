@@ -1,14 +1,47 @@
 import Card from "../common/Card";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const About = () => {
   return (
     <>
-      <div
+      <motion.section
         id="about-section"
         className="relative flex w-full flex-col justify-center overflow-hidden px-4 py-16 text-white"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="relative z-20 mx-auto flex max-w-5xl flex-col items-start justify-center px-2 text-left md:items-center md:text-center">
+        <motion.div
+          variants={itemVariants}
+          className="relative z-20 mx-auto flex max-w-5xl flex-col items-start justify-center px-2 text-left md:items-center md:text-center"
+        >
           <h1 className="text-3xl font-bold playfair-display md:text-5xl">
             Explore the Deep Cosmos
           </h1>
@@ -16,39 +49,46 @@ const About = () => {
             A new window into the universe every single day, backed by decades
             of space photography and missions.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="mt-10 flex flex-nowrap gap-4 overflow-x-auto px-2 pb-2 scroll-smooth md:justify-center md:gap-6 md:px-6">
-          <Link to="/apod" className="shrink-0">
-            <Card
-              tag="APOD"
-              title="Astronomy Picture of the Day"
-              img={"/planets/moonLanding.jpg"}
-              description="Explore NASA's featured astronomy image with historical date search and detailed explanations."
-              buttonLabel="Explore APOD"
-            />
-          </Link>
-          <Link to="/explore#asteroids" className="shrink-0">
-            <Card
-              tag="Asteroids"
-              title="Near-Earth Objects & asteroids"
-              img={"/planets/HubbleSpace.webp"}
-              description="Track asteroids approaching Earth and filter potentially hazardous objects."
-              buttonLabel="Track Asteroids"
-            />
-          </Link>
+          <motion.div variants={itemVariants} className="shrink-0">
+            <Link to="/apod">
+              <Card
+                tag="APOD"
+                title="Astronomy Picture of the Day"
+                img={"/planets/moonLanding.jpg"}
+                description="Explore NASA's featured astronomy image with historical date search and detailed explanations."
+                buttonLabel="Explore APOD"
+              />
+            </Link>
+          </motion.div>
 
-          <Link to="/favs" className="shrink-0">
-            <Card
-              tag="Favourites"
-              title="Browser your fav nasa images"
-              img={"/BlackHole.jpg"}
-              description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
-              buttonLabel="Explore Favourites"
-            />
-          </Link>
+          <motion.div variants={itemVariants} className="shrink-0">
+            <Link to="/explore#asteroids">
+              <Card
+                tag="Asteroids"
+                title="Near-Earth Objects & asteroids"
+                img={"/planets/HubbleSpace.webp"}
+                description="Track asteroids approaching Earth and filter potentially hazardous objects."
+                buttonLabel="Track Asteroids"
+              />
+            </Link>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="shrink-0">
+            <Link to="/favs">
+              <Card
+                tag="Favourites"
+                title="Browser your fav NASA images"
+                img={"/BlackHole.jpg"}
+                description="Browse images captured by NASA's Mars rovers using rover, camera, and Earth date filters."
+                buttonLabel="Explore Favourites"
+              />
+            </Link>
+          </motion.div>
         </div>
-      </div>
+      </motion.section>
     </>
   );
 };

@@ -88,8 +88,8 @@ const APOD = () => {
             Select any date since June 16, 1995 to discover NASA's Astronomy
             Picture of the Day.
           </p>
-          <div className="flex  justify-center gap-4 ">
-            <label className="text-lg font-semibold text-white pt-2">
+          <div className="flex flex-wrap justify-center gap-4 ">
+            <label className="text-sm lg:text-lg font-semibold text-white pt-2">
               Explore Astronomy History
             </label>
 
