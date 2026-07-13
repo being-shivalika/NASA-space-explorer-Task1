@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCloseApproachObjects } from "../../api/apodApi";
 import NearEarthCard from "../common/NearEarthCard";
-import NearEarthSkeleton from "../skeleton/ImageSkeleton";
+import NearEarthSkeleton from "../skeleton/NearEarthSkeleton";
 
 const NearEarthObject = () => {
   const today = new Date().toISOString().split("T")[0];
